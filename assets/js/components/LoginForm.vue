@@ -44,10 +44,10 @@
                         password: this.password
                     })
                     .then(response => {
-                        console.log(response.data);
-                        //this.$emit('user-authenticated', userUri);
-                        //this.email = '';
-                        //this.password = '';
+                        console.log(response.headers.location);
+                        this.$emit('user-authenticated', response.headers.location);
+                        this.email = '';
+                        this.password = '';
                     }).catch(error => {
                       if(error.response){
                         this.error = error.response.data.error;
